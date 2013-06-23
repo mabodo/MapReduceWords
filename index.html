@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+      <input type="text" id="inputtext" name="lname">
+      <input type="button" id="button" name="send" value="Lookfor"/>
+      <div id="results"></div>
+    </body>
+    <script src="http://mbostock.github.com/d3/d3.js?2.7.2"></script>
+    <script type="text/javascript">
+
+        var plotResults = function(data){
+            queryMade=data['query'];
+            d3.select('#results').append('p').text(queryMade);
+        }
+
+        var callData = function(url){
+            d3.json(url, function(data, error) {
+                plotResults(data);
+            });
+        }
+
+        d3.select('#button')
+          .on("click",function(d){
+            var inputtext=d3.select('#inputtext').property('value')
+            var url="/data.json?name1="+inputtext;
+            callData(url);
+          })
+
+    </script>
+</html>
+
