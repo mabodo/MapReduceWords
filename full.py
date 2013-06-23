@@ -12,7 +12,7 @@ class RootController(TGController):
     @expose('json:', content_type='application/json')
     def data(self, **kw):
         #print kw['name1']
-        query=kw.get('name1','')
+        query=kw.get('word','')
         return {'query':('').join( sorted(query) )}
 
 

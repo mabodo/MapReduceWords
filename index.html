@@ -22,8 +22,8 @@
 
         d3.select('#button')
           .on("click",function(d){
-            var inputtext=d3.select('#inputtext').property('value')
-            var url="/data.json?name1="+inputtext;
+            var inputtext=d3.select('#inputtext').property('value');
+            var url="/data.json?word="+inputtext;
             callData(url);
           })
 
